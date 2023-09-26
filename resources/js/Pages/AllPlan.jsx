@@ -12,7 +12,6 @@ export default function Dashboard({ auth }) {
                         <p>〇〇について</p>
                         <p>言い伝え等</p>
                         <p>お参り or 水を飲む or 〇〇を探す</p>
-                        <p>写真を撮る</p>
                     </div>
 
                     <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center mb-5">
