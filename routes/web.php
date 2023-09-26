@@ -29,6 +29,14 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/experience', function () {
+    return Inertia::render('AllPlan');
+})->name('experience');
+
+Route::get('/experience-plan', function () {
+    return Inertia::render('AllPlanLogin');
+})->middleware(['auth', 'verified'])->name('experience-plan');
+
 Route::get('/first-mission', function () {
     return Inertia::render('FirstMission');
 })->middleware(['auth', 'verified'])->name('first-mission');
