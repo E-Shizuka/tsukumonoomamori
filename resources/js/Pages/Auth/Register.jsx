@@ -184,7 +184,7 @@ export default function Register() {
                         ログインはこちらから
                     </Link>
 
-                    <button class="custom-button" disabled={processing}>
+                    <button className="custom-button" disabled={processing}>
                         新規登録
                     </button>
                 </div>
