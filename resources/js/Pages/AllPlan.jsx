@@ -1,31 +1,88 @@
+import GuestLayout from "@/Layouts/GuestLayout";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import Footer from "../components/footer";
-export default function Dashboard({ auth }) {
-    return (
-        <AuthenticatedLayout user={auth.user}>
-            <Head title="自然の力を体感" />
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="overflow-hidden sm:rounded-lg">
-                        <h2>自然の力を体感</h2>
-                        <p>〇〇について</p>
-                        <p>言い伝え等</p>
-                        <p>お参り or 水を飲む or 〇〇を探す</p>
-                    </div>
 
-                    <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center mb-5">
-                        <button
-                            onClick={() => {
-                                window.location.href = route("third-mission");
-                            }}
-                            class="custom-button"
-                        >
-                            次の体験へ
-                        </button>
+function CommonContent() {
+    return (
+        <>
+            <Head title="自然の力を体感" />
+            <div className="mb-24 bg_color_sub">
+                <div className="py-6">
+                    <div className="card lg:card-side bg-base-100 shadow-xl">
+                        <figure>
+                            <img
+                                src="/images/oogosha_oosugi.jpg"
+                                alt="natural"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">〇〇旅館</h2>
+                            <p>旅館住所：</p>
+                            <p>パワースポット：大杵社の大杉</p>
+                            <p>お守り：銀座きもの装</p>
+                            <div className="card-actions justify-end">
+                                <button
+                                    // onClick={() => {
+                                    //     window.location.href = route("register");
+                                    // }}
+                                    onClick={() => {
+                                        window.location.href =
+                                            route("dashboard");
+                                    }}
+                                    className="custom-button"
+                                >
+                                    詳細を見る
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* このボックス毎繰り返す */}
+                <div className="py-6">
+                    <div className="card lg:card-side bg-base-100 shadow-xl">
+                        <figure>
+                            <img
+                                src="/images/oogosha_oosugi.jpg"
+                                alt="natural"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">〇〇旅館</h2>
+                            <p>旅館住所：</p>
+                            <p>パワースポット：大杵社の大杉</p>
+                            <p>お守り：銀座きもの装</p>
+                            <div className="card-actions justify-end">
+                                <button
+                                    onClick={() => {
+                                        window.location.href =
+                                            route("dashboard");
+                                    }}
+                                    className="custom-button"
+                                >
+                                    詳細を見る
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </>
+    );
+}
+
+export default function Welcome({ auth }) {
+    return (
+        <>
+            {auth.user ? (
+                <AuthenticatedLayout user={auth.user}>
+                    <CommonContent />
+                </AuthenticatedLayout>
+            ) : (
+                <GuestLayout>
+                    <CommonContent />
+                </GuestLayout>
+            )}
             <style>
                 {`
                     .custom-button {
@@ -48,6 +105,6 @@ export default function Dashboard({ auth }) {
                                 `}
             </style>
             <Footer />
-        </AuthenticatedLayout>
+        </>
     );
 }
