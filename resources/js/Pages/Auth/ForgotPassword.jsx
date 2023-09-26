@@ -1,18 +1,18 @@
-import GuestLayout from '@/Layouts/GuestLayout';
-import InputError from '@/Components/InputError';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import { Head, useForm } from '@inertiajs/react';
+import GuestLayout from "@/Layouts/GuestLayout";
+import InputError from "@/Components/InputError";
+import PrimaryButton from "@/Components/PrimaryButton";
+import TextInput from "@/Components/TextInput";
+import { Head, useForm } from "@inertiajs/react";
 
 export default function ForgotPassword({ status }) {
     const { data, setData, post, processing, errors } = useForm({
-        email: '',
+        email: "",
     });
 
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('password.email'));
+        post(route("password.email"));
     };
 
     return (
@@ -20,11 +20,14 @@ export default function ForgotPassword({ status }) {
             <Head title="Forgot Password" />
 
             <div className="mb-4 text-sm text-gray-600">
-                Forgot your password? No problem. Just let us know your email address and we will email you a password
-                reset link that will allow you to choose a new one.
+                パスワードをお忘れですか？下記より会員登録しているメールアドレスを記入し送信ボタンをクリックください。パスワード再設定用のリンクをメールでお送りします。
             </div>
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+            {status && (
+                <div className="mb-4 font-medium text-sm text-green-600">
+                    {status}
+                </div>
+            )}
 
             <form onSubmit={submit}>
                 <TextInput
@@ -34,17 +37,45 @@ export default function ForgotPassword({ status }) {
                     value={data.email}
                     className="mt-1 block w-full"
                     isFocused={true}
-                    onChange={(e) => setData('email', e.target.value)}
+                    onChange={(e) => setData("email", e.target.value)}
                 />
 
                 <InputError message={errors.email} className="mt-2" />
 
                 <div className="flex items-center justify-end mt-4">
-                    <PrimaryButton className="ml-4" disabled={processing}>
-                        Email Password Reset Link
-                    </PrimaryButton>
+                    <button
+                        onClick={() => {
+                            window.location.href = route("login");
+                        }}
+                        className="custom-button"
+                    >
+                        戻る
+                    </button>
+                    <button className="custom-button2" disabled={processing}>
+                        送信
+                    </button>
                 </div>
             </form>
+            <style>
+                {`
+                    .custom-button {
+                        background-color: #f19072; /* ボタンの背景色 */
+                        color: black; /* ボタンのテキスト色 */
+                        padding: 8px 16px; /* ボタンのパディング */
+                        border-radius: 4px; /* ボタンの角丸 */
+                        border: none; /* ボーダーなし */
+                    }
+
+                    .custom-button2 {
+                        background-color: #d3381c; /* ホバー時の背景色 */
+                        color: white; /* ボタンのテキスト色 */
+                        padding: 8px 16px; /* ボタンのパディング */
+                        border-radius: 4px; /* ボタンの角丸 */
+                        border: none; /* ボーダーなし */
+                    }
+
+                                `}
+            </style>
         </GuestLayout>
     );
 }
