@@ -23,11 +23,23 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/home', function () {
+    return Inertia::render('Home');
+})->middleware(['auth', 'verified'])->name('home');
+
+Route::get('/experience', function () {
+    return Inertia::render('AllPlan');
+})->name('experience');
+
+Route::get('/experience-plan', function () {
+    return Inertia::render('AllPlanLogin');
+})->middleware(['auth', 'verified'])->name('experience-plan');
 
 Route::get('/first-mission', function () {
     return Inertia::render('FirstMission');
@@ -49,9 +61,9 @@ Route::get('/timeline', function () {
     return Inertia::render('Timeline');
 })->middleware(['auth', 'verified'])->name('timeline');
 
-Route::get('/shop', function () {
-    return Inertia::render('Shop');
-})->middleware(['auth', 'verified'])->name('shop');
+Route::get('/omamori', function () {
+    return Inertia::render('Omamori');
+})->middleware(['auth', 'verified'])->name('omamori');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -5,8 +5,8 @@ export default function Footer(auth) {
                 <div className="flex-1 w-screen m-3">
                     <div className="flex justify-between mx-2">
                         <div className="flex flex-col items-center text-center w-1/4">
-                            {/* <a href={route("home")}> */}
-                            <a href={route("welcome")}>
+                            <a href={route("home")}>
+                                {/* <a href={route("welcome")}>  */}
                                 <div className="text_size">ホーム</div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
