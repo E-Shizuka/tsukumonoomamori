@@ -3,19 +3,19 @@ export default function Footer() {
         <footer className="absolute bottom-0" class="bg_color_acc">
             <div className="flex">
                 <div className="flex-1 w-screen m-3">
-                    <div class="flex justify-between mx-6">
+                    <div className="flex justify-between mx-6">
                         <div>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-home-2"
+                                className="icon icon-tabler icon-tabler-home-2"
                                 width="24"
                                 height="24"
                                 viewBox="0 0 24 24"
-                                stroke-width="2"
+                                strokeWidth="2"
                                 stroke="currentColor"
                                 fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             >
                                 <path
                                     stroke="none"
@@ -30,15 +30,15 @@ export default function Footer() {
                         <div>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-torii"
+                                className="icon icon-tabler icon-tabler-torii"
                                 width="24"
                                 height="24"
                                 viewBox="0 0 24 24"
-                                stroke-width="2"
+                                strokeWidth="2"
                                 stroke="currentColor"
                                 fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             >
                                 <path
                                     stroke="none"
@@ -55,15 +55,15 @@ export default function Footer() {
                         <div>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-book"
+                                className="icon icon-tabler icon-tabler-book"
                                 width="24"
                                 height="24"
                                 viewBox="0 0 24 24"
-                                stroke-width="2"
+                                strokeWidth="2"
                                 stroke="currentColor"
                                 fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             >
                                 <path
                                     stroke="none"
@@ -80,15 +80,15 @@ export default function Footer() {
                         <div>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-shopping-cart"
+                                className="icon icon-tabler icon-tabler-shopping-cart"
                                 width="24"
                                 height="24"
                                 viewBox="0 0 24 24"
-                                stroke-width="2"
+                                strokeWidth="2"
                                 stroke="currentColor"
                                 fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             >
                                 <path
                                     stroke="none"
@@ -104,15 +104,15 @@ export default function Footer() {
                         <div>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-dots"
+                                className="icon icon-tabler icon-tabler-dots"
                                 width="24"
                                 height="24"
                                 viewBox="0 0 24 24"
-                                stroke-width="2"
+                                strokeWidth="2"
                                 stroke="currentColor"
                                 fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             >
                                 <path
                                     stroke="none"
@@ -128,15 +128,15 @@ export default function Footer() {
                         //ダンボール
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-box-seam"
+                                className="icon icon-tabler icon-tabler-box-seam"
                                 width="24"
                                 height="24"
                                 viewBox="0 0 24 24"
-                                stroke-width="2"
+                                strokeWidth="2"
                                 stroke="currentColor"
                                 fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             >
                                 <path
                                     stroke="none"
@@ -154,15 +154,15 @@ export default function Footer() {
                         //ユーザー管理
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-user-cog"
+                                className="icon icon-tabler icon-tabler-user-cog"
                                 width="24"
                                 height="24"
                                 viewBox="0 0 24 24"
-                                stroke-width="2"
+                                strokeWidth="2"
                                 stroke="currentColor"
                                 fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             >
                                 <path
                                     stroke="none"
