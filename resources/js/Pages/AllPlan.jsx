@@ -18,7 +18,7 @@ function CommonContent() {
                         </figure>
                         <div className="card-body">
                             <h2 className="card-title">〇〇旅館</h2>
-                            <p>旅館住所：</p>
+                            <p>旅館所在地：</p>
                             <p>パワースポット：大杵社の大杉</p>
                             <p>お守り：銀座きもの装</p>
                             <div className="card-actions justify-end">
@@ -49,7 +49,7 @@ function CommonContent() {
                         </figure>
                         <div className="card-body">
                             <h2 className="card-title">〇〇旅館</h2>
-                            <p>旅館住所：</p>
+                            <p>旅館所在地：</p>
                             <p>パワースポット：大杵社の大杉</p>
                             <p>お守り：銀座きもの装</p>
                             <div className="card-actions justify-end">
