@@ -1,30 +1,42 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import Footer from "../components/footer";
+import YesChecked from "../Components/YesChecked";
 export default function Dashboard({ auth }) {
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="地元の美食を堪能 " />
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="overflow-hidden sm:rounded-lg">
-                        <h2>地元の美食を堪能 </h2>
-                        <p>地元の食材の紹介</p>
-                        <p>お店の紹介</p>
-                        <p>料理のこだわり</p>
-                        <p>料理を食べる</p>
-                        <p>写真を撮る</p>
-                    </div>
-
-                    <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center mb-5">
-                        <button
-                            onClick={() => {
-                                window.location.href = route("second-mission");
-                            }}
-                            class="custom-button"
-                        >
-                            次の体験へ
-                        </button>
+                <div className="sm:fixed top-0 right-0 p-0 flex justify-end items-center space-x-4">
+                    <p className="mr-2">投稿可否</p>
+                    <YesChecked />
+                </div>
+                <div className="sm:fixed sm:top-0 sm:right-0 p-0 text-right">
+                    <button
+                        onClick={() => {
+                            window.location.href = route("home");
+                        }}
+                        className="custom-button"
+                    >
+                        修正
+                    </button>
+                </div>
+                <div className="mb-8 bg_color_sub">
+                    <div className="py-6">
+                        <div className="card lg:card-side bg-base-100 shadow-xl">
+                            <figure>
+                                {/* 写真は自分が撮影したものが出るように */}
+                                <img
+                                    src="/images/oogosha_oosugi.jpg"
+                                    alt="natural"
+                                />
+                            </figure>
+                            <div className="card-body">
+                                <p>mission場所　日付</p>
+                                <p>ひとことコメント：</p>
+                                <p>お守り：銀座きもの装</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
