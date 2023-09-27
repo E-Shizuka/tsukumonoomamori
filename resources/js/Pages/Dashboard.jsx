@@ -51,7 +51,7 @@ export default function Dashboard({ auth }) {
                             onClick={() => {
                                 window.location.href = route("first-mission");
                             }}
-                            class="custom-button"
+                            className="custom-button"
                         >
                             出かける
                         </button>
