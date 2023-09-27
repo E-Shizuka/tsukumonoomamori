@@ -14,7 +14,7 @@ export default function Dashboard({ auth }) {
                 <div className="sm:fixed sm:top-0 sm:right-0 p-0 text-right">
                     <button
                         onClick={() => {
-                            window.location.href = route("home");
+                            window.location.href = route("mypage");
                         }}
                         className="custom-button"
                     >
