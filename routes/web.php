@@ -53,6 +53,10 @@ Route::get('/third-mission', function () {
     return Inertia::render('ThirdMission');
 })->middleware(['auth', 'verified'])->name('third-mission');
 
+Route::get('/last-mission', function () {
+    return Inertia::render('LastMission');
+})->middleware(['auth', 'verified'])->name('last-mission');
+
 Route::get('/mypage', function () {
     return Inertia::render('Mypage');
 })->middleware(['auth', 'verified'])->name('mypage');

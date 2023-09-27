@@ -1,6 +1,7 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import Footer from "../components/footer";
+import YesChecked from "../Components/YesChecked";
 import React, { Component, useState } from "react";
 export default function Dashboard({ auth }) {
     // ステートで選択されたファイルを管理
@@ -16,46 +17,55 @@ export default function Dashboard({ auth }) {
     };
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="自然の力を体感" />
+            <Head title="地元の美食を堪能 " />
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg">
-                        <h2>自然の力を体感</h2>
-                        <p>〇〇について</p>
-                        <p>言い伝え等</p>
-                        <h3>ミッション</h3>
-                        <p>①お参り or 水を飲む or 〇〇を探す</p>
-                        <p>ひとことコメント・感想を記録</p>
-                        <input type="text" />
-                        <p>②写真を撮る</p>
-                        {/* 画像アップロード用の input 要素 */}
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleFileChange}
-                        />
-
-                        {/* プレビュー表示 */}
-                        {selectedFile && (
-                            <div>
-                                <h4>アップロードされた画像プレビュー:</h4>
-                                <img
-                                    src={selectedFile}
-                                    alt="アップロードされた画像"
-                                    width="200"
-                                />
+                        <h2>旅の思い出を記録 </h2>
+                        <p>
+                            これまでの旅を1つにまとめて記録します。
+                            投稿の外部への公開可否はmypageからいつでも変更できます。
+                        </p>
+                        <p>①体験旅館</p>
+                        <select name="example">
+                            <option>旅館名①</option>
+                            <option>旅館名②</option>
+                            <option>旅館名③</option>
+                        </select>
+                        <p>②体験記プレビュー（mypageで後から修正可能）</p>
+                        <div className="mb-2 bg_color_sub">
+                            <div className="py-6">
+                                <div className="card lg:card-side bg-base-100 shadow-xl">
+                                    <figure>
+                                        <img
+                                            src="/images/oogosha_oosugi.jpg"
+                                            alt="natural"
+                                        />
+                                    </figure>
+                                    <div className="card-body">
+                                        <p>mission場所　日付</p>
+                                        <p>ひとことコメント：</p>
+                                        <p>お守り：銀座きもの装</p>
+                                    </div>
+                                </div>
                             </div>
-                        )}
+                        </div>
+                        <p>③投稿可否</p>
+                        <YesChecked />
+                        <p>体験日付</p>
+                        <input type="date" />
+                        {/* 位置情報 */}
+                        <input type="hidden" />
                     </div>
 
                     <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center mb-5">
                         <button
                             onClick={() => {
-                                window.location.href = route("third-mission");
+                                window.location.href = route("home");
                             }}
                             className="custom-button"
                         >
-                            次の体験へ
+                            投稿
                         </button>
                     </div>
                 </div>
