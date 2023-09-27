@@ -5,7 +5,7 @@ import YesChecked from "../Components/YesChecked";
 export default function Dashboard({ auth }) {
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="地元の美食を堪能 " />
+            <Head title="mypage " />
             <div className="py-12">
                 <div className="sm:fixed top-0 right-0 p-0 flex justify-end items-center space-x-4">
                     <p className="mr-2">投稿可否</p>
