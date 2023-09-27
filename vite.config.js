@@ -6,7 +6,6 @@ export default defineConfig({
     plugins: [
         laravel({
             input: "resources/js/app.jsx",
-            input: "resources/js/Pages/AllPlan.jsx",
             refresh: true,
         }),
         react(),
