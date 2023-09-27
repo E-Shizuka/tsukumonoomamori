@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import Footer from "../components/footer";
+import Footer from "../components/FooterLogin";
 export default function Dashboard({ auth }) {
     return (
         <AuthenticatedLayout user={auth.user}>
