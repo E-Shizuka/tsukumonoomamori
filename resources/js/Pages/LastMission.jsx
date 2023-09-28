@@ -61,7 +61,7 @@ export default function Dashboard({ auth }) {
                     <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center mb-5">
                         <button
                             onClick={() => {
-                                window.location.href = route("home");
+                                window.location.href = route("mypage");
                             }}
                             className="custom-button"
                         >

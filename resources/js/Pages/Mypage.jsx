@@ -2,7 +2,18 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import Footer from "../components/FooterLogin";
 import YesChecked from "../Components/YesChecked";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export default function Dashboard({ auth }) {
+    const sliderSettings = {
+        dots: true, // スライダーの下にドットを表示するかどうか
+        infinite: false, // 無限ループスライド
+        speed: 300, // スライド/フェードアニメーションの速さ（ミリ秒）
+        slidesToShow: 1, // 一度に表示するスライド数
+        slidesToScroll: 1, // 一度のスクロールで動かすスライド数
+    };
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="mypage " />
@@ -21,23 +32,57 @@ export default function Dashboard({ auth }) {
                         修正
                     </button>
                 </div>
-                <div className="mb-8 bg_color_sub">
-                    <div className="py-6">
-                        <div className="card lg:card-side bg-base-100 shadow-xl">
-                            <figure>
-                                {/* 写真は自分が撮影したものが出るように */}
-                                <img
-                                    src="/images/oogosha_oosugi.jpg"
-                                    alt="natural"
-                                />
-                            </figure>
-                            <div className="card-body">
-                                <p>mission場所　日付</p>
-                                <p>ひとことコメント：</p>
-                                <p>お守り：銀座きもの装</p>
+                <div className="mb-24 bg_color_sub px-8">
+                    <Slider {...sliderSettings}>
+                        <div className="py-6">
+                            <div className="card lg:card-side bg-base-100 shadow-xl">
+                                <figure>
+                                    {/* 写真は自分が撮影したものが出るように */}
+                                    <img
+                                        src="/images/oogosha_oosugi.jpg"
+                                        alt="natural"
+                                    />
+                                </figure>
+                                <div className="card-body">
+                                    <p>mission場所　日付</p>
+                                    <p>ひとことコメント：</p>
+                                    <p>お守り：銀座きもの装</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div className="py-6">
+                            <div className="card lg:card-side bg-base-100 shadow-xl ">
+                                <figure>
+                                    {/* 写真は自分が撮影したものが出るように */}
+                                    <img
+                                        src="/images/oogosha_oosugi.jpg"
+                                        alt="natural"
+                                    />
+                                </figure>
+                                <div className="card-body">
+                                    <p>mission場所　日付</p>
+                                    <p>ひとことコメント：</p>
+                                    <p>お守り：銀座きもの装</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="py-6">
+                            <div className="card lg:card-side bg-base-100 shadow-xl">
+                                <figure>
+                                    {/* 写真は自分が撮影したものが出るように */}
+                                    <img
+                                        src="/images/oogosha_oosugi.jpg"
+                                        alt="natural"
+                                    />
+                                </figure>
+                                <div className="card-body">
+                                    <p>mission場所　日付</p>
+                                    <p>ひとことコメント：</p>
+                                    <p>お守り：銀座きもの装</p>
+                                </div>
+                            </div>
+                        </div>
+                    </Slider>
                 </div>
             </div>
             <style>
@@ -57,6 +102,10 @@ export default function Dashboard({ auth }) {
                     }
                     .bg_color_sub {
                         background-color: #fff1cf;
+                    }
+                    .slick-prev:before,
+                    .slick-next:before {
+                       color: #d3381c;
                     }
 
                                 `}
