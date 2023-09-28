@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id(); // 管理者ID
-            $table->string('company_code'); // 企業コード
+            $table->string('company_code')->unique(); // ランダムな8文字の文字列
             $table->string('admin_name'); // ユーザー名
             $table->string('email')->unique(); // メールアドレス
             $table->string('Password'); // パスワード
