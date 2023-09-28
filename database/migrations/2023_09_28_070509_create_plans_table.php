@@ -14,7 +14,14 @@ return new class extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id(); // プランID
             $table->string('plan_name'); // プラン(パワースポット)名
-            $table->text('all_instruction'); // 全体の流れ
+            $table->text('first_title'); // 1つ目のミッションタイトル
+            $table->text('first_instruction'); // 1つ目のミッション紹介
+            $table->text('second_title'); // 2つ目のミッションタイトル
+            $table->text('second_instruction'); // 2つ目のミッション紹介
+            $table->text('third_title'); // 3つ目のミッションタイトル
+            $table->text('third_instruction'); // 3つ目のミッション紹介
+            $table->text('last_title'); // 4つ目のミッションタイトル
+            $table->text('last_instruction'); // 4つ目のミッション紹介
             $table->string('plan_password'); // プランパスワード
             
             // 外部キー制約
