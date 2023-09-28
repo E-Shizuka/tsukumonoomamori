@@ -2,7 +2,7 @@ import GuestLayout from "@/Layouts/GuestLayout";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import FooterLogin from "../components/FooterLogin";
-import Footer from "../components/footer";
+import Footer from "../Components/Footer";
 
 function CommonContent() {
     return (
