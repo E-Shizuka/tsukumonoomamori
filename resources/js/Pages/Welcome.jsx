@@ -121,7 +121,7 @@ export default function Welcome({ auth, header, phpVersion }) {
                                 className="w-1/2 justify-center"
                                 style={{
                                     backgroundImage:
-                                        "url('/images/furisode.jpg')",
+                                        "url('../images/furisode.jpg')",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
                                     height: "15vh",

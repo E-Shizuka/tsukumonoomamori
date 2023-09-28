@@ -1,7 +1,8 @@
 import GuestLayout from "@/Layouts/GuestLayout";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import Footer from "../components/FooterLogin";
+import FooterLogin from "../components/FooterLogin";
+import Footer from "../components/footer";
 
 function CommonContent() {
     return (
@@ -12,7 +13,7 @@ function CommonContent() {
                     <div className="card lg:card-side bg-base-100 shadow-xl">
                         <figure>
                             <img
-                                src="/images/oogosha_oosugi.jpg"
+                                src="../images/oogosha_oosugi.jpg"
                                 alt="natural"
                             />
                         </figure>
@@ -43,7 +44,7 @@ function CommonContent() {
                     <div className="card lg:card-side bg-base-100 shadow-xl">
                         <figure>
                             <img
-                                src="/images/oogosha_oosugi.jpg"
+                                src="../images/oogosha_oosugi.jpg"
                                 alt="natural"
                             />
                         </figure>
@@ -104,7 +105,7 @@ export default function Welcome({ auth }) {
 
                                 `}
             </style>
-            <Footer />
+            {auth.user ? <FooterLogin /> : <Footer />}
         </>
     );
 }
