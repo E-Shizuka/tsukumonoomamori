@@ -256,7 +256,7 @@ export default function Footer(auth) {
                         width: 100%; /* ウィンドウの幅いっぱいに要素を広げる */
                     }
                     .text_size{
-                        font-size:2px;
+                        font-size:4px;
                         margin-top: auto;
                         text-align: center;
                     }
