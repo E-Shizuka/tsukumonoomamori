@@ -1,5 +1,5 @@
 import { Link, Head } from "@inertiajs/react";
-import Footer from "../components/footer";
+import Footer from "../Components/Footer";
 import Dropdown from "@/Components/Dropdown";
 
 export default function Welcome({ auth, header, phpVersion }) {
