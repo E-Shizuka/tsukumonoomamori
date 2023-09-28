@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import Footer from "../components/footer";
+import Footer from "../Components/Footer";
 
 const cameraWidth = 300;
 const cameraHeight = 400;
