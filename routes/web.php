@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RyokanController;
+use App\Http\Controllers\OmamoriController;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -38,9 +41,9 @@ Route::get('/experience', function () {
     return Inertia::render('AllPlan');
 })->name('experience');
 
-Route::get('/experience-plan', function () {
-    return Inertia::render('AllPlanLogin');
-})->middleware(['auth', 'verified'])->name('experience-plan');
+Route::get('/plan-login', function () {
+    return Inertia::render('PlanPassword');
+})->middleware(['auth', 'verified'])->name('plan-login');
 
 Route::get('/first-mission', function () {
     return Inertia::render('FirstMission');
@@ -76,8 +79,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get('/dashboard', [PlanController::class, 'index']);
 Route::get('/plans', [PlanController::class, 'index']);
+Route::get('/planlist',[PlanController::class,'planlist']);
+Route::get('/ryokans', [RyokanController::class, 'index']);
+Route::get('/omamoris', [OmamoriController::class, 'index']);
 
 
 require __DIR__.'/auth.php';

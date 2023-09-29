@@ -2,29 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PlanResource;
-use App\Models\Plan;
+use App\Models\Omamori;
 use Illuminate\Http\Request;
 
-class PlanController extends Controller
+class OmamoriController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // データベース内のすべてのPlanを取得し、plan変数に代入
-      $plans = Plan::all();
-      return response()->json(['plans' => $plans]);
+         // データベース内のすべてのPlanを取得し、omamoris変数に代入
+      $omamoris = Omamori::all();
+      return response()->json(['omamoris' => $omamoris]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function planlist()
+    public function create()
     {
-        $plans = Plan::all();
-        return PlanResource::collection($plans);
+        //
     }
 
     /**
@@ -38,7 +36,7 @@ class PlanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Plan $plan)
+    public function show(Omamori $omamori)
     {
         //
     }
@@ -46,7 +44,7 @@ class PlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Plan $plan)
+    public function edit(Omamori $omamori)
     {
         //
     }
@@ -54,7 +52,7 @@ class PlanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Plan $plan)
+    public function update(Request $request, Omamori $omamori)
     {
         //
     }
@@ -62,7 +60,7 @@ class PlanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Plan $plan)
+    public function destroy(Omamori $omamori)
     {
         //
     }

@@ -4,18 +4,10 @@ import Footer from "../Components/FooterLogin";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 export default function Dashboard({ auth }) {
-    // const [plans, setPlans] = useState([]);
-
-    // useEffect(() => {
-    //     axios
-    //         .get("/plans") // /plans エンドポイントにアクセス
-    //         .then((response) => {
-    //             setPlans(response.data.plans);
-    //         })
-    //         .catch((error) => console.error(error));
-    // }, []);
-
-    // console.log(plans);
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("p") - 1;
+    const next = params.get("p");
+    console.log(id);
 
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -44,30 +36,35 @@ export default function Dashboard({ auth }) {
                             <p>Loading...</p>
                         ) : (
                             <>
+                                {/* {plans &&
+                                    plans.map((plan, index) => (
+                                        <div key={index}>
+                                            <h2>開運の旅へ</h2>
+                                            <h3>{plan.plan_name}</h3>
+                                            <h3>【全体の流れ】</h3>
+                                            <h4>{plan.first_title}</h4>
+                                            <p>{plan.first_instruction}</p>
+                                            <h4>{plan.second_title}</h4>
+                                            <p>{plan.second_instruction}</p>
+                                            <h4>{plan.third_title}</h4>
+                                            <p>{plan.third_instruction}</p>
+                                            <h4>{plan.last_title}</h4>
+                                            <p>{plan.last_instruction}</p>
+                                        </div>
+                                    ))} */}
                                 <h2>開運の旅へ</h2>
-                                <h3>{plans && plans[0].plan_name}</h3>
+                                <h3>{plans && plans[id].plan_name}</h3>
                                 <h3>【全体の流れ】</h3>
-                                <h4>{plans && plans[0].first_title}</h4>
-                                <p>{plans && plans[0].first_instruction}</p>
-                                <h4>{plans && plans[0].second_title}</h4>
-                                <p>{plans && plans[0].second_instruction}</p>
-                                <h4>{plans && plans[0].third_title}</h4>
-                                <p>{plans && plans[0].third_instruction}</p>
-                                <h4>{plans && plans[0].last_title}</h4>
-                                <p>{plans && plans[0].last_instruction}</p>
+                                <h4>{plans && plans[id].first_title}</h4>
+                                <p>{plans && plans[id].first_instruction}</p>
+                                <h4>{plans && plans[id].second_title}</h4>
+                                <p>{plans && plans[id].second_instruction}</p>
+                                <h4>{plans && plans[id].third_title}</h4>
+                                <p>{plans && plans[id].third_instruction}</p>
+                                <h4>{plans && plans[id].last_title}</h4>
+                                <p>{plans && plans[id].last_instruction}</p>
                             </>
                         )}
-                        {/* <h2>開運の旅へ</h2>
-                        <h3>{plans && plans[0].plan_name}</h3>
-                        <h3>【全体の流れ】</h3>
-                        <h4>{plans && plans[0].first_title}</h4>
-                        <p>{plans && plans[0].first_instruction}</p>
-                        <h4>{plans && plans[0].second_title}</h4>
-                        <p>{plans && plans[0].second_instruction}</p>
-                        <h4>{plans && plans[0].third_title}</h4>
-                        <p>{plans && plans[0].third_instruction}</p>
-                        <h4>{plans && plans[0].last_title}</h4>
-                        <p>{plans && plans[0].last_instruction}</p> */}
                     </div>
                     <div className=" overflow-hidden sm:rounded-lg">
                         <h3>【注意事項】</h3>
@@ -91,10 +88,12 @@ export default function Dashboard({ auth }) {
                             パワースポット巡りは素晴らしい経験ですが、その場所とその力を尊重し、感謝の心を持って訪れることが大切です。安全で幸せな旅をお楽しみください。
                         </p>
                     </div>
+
                     <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center mb-5">
                         <button
                             onClick={() => {
-                                window.location.href = route("first-mission");
+                                window.location.href =
+                                    route("plan-login") + `?p=${next}`;
                             }}
                             className="custom-button"
                         >
