@@ -27,11 +27,11 @@ class Plan extends Model
 
     public function ryokan()
     {
-        return $this->belongsTo(Ryokan::class, 'ryokan_id');
+        return $this->belongsTo(Ryokan::class, 'ryokan_id','id');
     }
     public function omamori()
     {
-        return $this->belongsTo(Omamori::class, 'omamori_id');
+        return $this->belongsTo(Omamori::class, 'omamori_id','id');
     }
 
 }
