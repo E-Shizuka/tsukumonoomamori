@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PlanResource;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 
@@ -20,9 +21,10 @@ class PlanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function planlist()
     {
-        //
+        $plans = Plan::all();
+        return PlanResource::collection($plans);
     }
 
     /**
@@ -36,9 +38,18 @@ class PlanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Plan $plan)
+    public function show(Request $request)
     {
-        //
+    $id = $request->input('id');
+
+    // 指定したIDのPlanを取得し、plan変数に代入
+    $plan = Plan::find($id);
+
+    if (!$plan) {
+        return response()->json(['message' => 'Plan not found'], 404);
+    }
+
+    return response()->json(['plan' => $plan]);
     }
 
     /**

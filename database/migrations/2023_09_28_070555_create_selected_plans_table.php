@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('ryokan_id')->nullable()->constrained();
+            $table->foreignId('plan_id')->nullable()->constrained();
             
             $table->timestamps();
             $table->boolean('delete')->default(false);

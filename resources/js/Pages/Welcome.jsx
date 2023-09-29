@@ -11,7 +11,7 @@ export default function Welcome({ auth, header, phpVersion }) {
                         <div className="flex justify-between h-16">
                             <div className="flex">
                                 <div className="shrink-0 flex items-center">
-                                    <Link href="/welcome">
+                                    <Link href="/">
                                         <img
                                             src="images/sakura_logo.svg"
                                             className="h-9 w-auto"
