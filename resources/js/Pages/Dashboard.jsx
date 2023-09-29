@@ -89,13 +89,21 @@ export default function Dashboard({ auth }) {
                         </p>
                     </div>
 
-                    <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center mb-5">
+                    <div className="max-w-7xl mx-auto p-6 lg:p-8 flex justify-center items-center mb-5">
+                        <button
+                            onClick={() => {
+                                window.location.href = route("experience");
+                            }}
+                            className="custom-button"
+                        >
+                            戻る
+                        </button>
                         <button
                             onClick={() => {
                                 window.location.href =
                                     route("plan-login") + `?p=${next}`;
                             }}
-                            className="custom-button"
+                            className="go-button"
                         >
                             出かける
                         </button>
@@ -107,6 +115,15 @@ export default function Dashboard({ auth }) {
                     .custom-button {
                         background-color: #f19072; /* ボタンの背景色 */
                         color: black; /* ボタンのテキスト色 */
+                        padding: 8px 16px; /* ボタンのパディング */
+                        border-radius: 4px; /* ボタンの角丸 */
+                        border: none; /* ボーダーなし */
+                        margin: 0.5rem;
+                    }
+
+                    .go-button {
+                        background-color: #d3381c; /* ボタンの背景色 */
+                        color: white; /* ボタンのテキスト色 */
                         padding: 8px 16px; /* ボタンのパディング */
                         border-radius: 4px; /* ボタンの角丸 */
                         border: none; /* ボーダーなし */
