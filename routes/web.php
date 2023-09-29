@@ -16,9 +16,7 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('project')->group(function () {
-    
-    Route::get('/', function () {
+Route::get('/', function () {
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
@@ -26,7 +24,6 @@ Route::prefix('project')->group(function () {
             'phpVersion' => PHP_VERSION,
         ]);
     })->name('welcome');
-});
 
 
 Route::get('/dashboard', function () {
@@ -79,6 +76,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('plan', PlanController::class);
+// Route::get('/dashboard', [PlanController::class, 'index']);
+Route::get('/plans', [PlanController::class, 'index']);
+
 
 require __DIR__.'/auth.php';

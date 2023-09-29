@@ -12,7 +12,9 @@ class PlanController extends Controller
      */
     public function index()
     {
-        //
+        // データベース内のすべてのPlanを取得し、plan変数に代入
+      $plans = Plan::all();
+      return response()->json(['plans' => $plans]);
     }
 
     /**
