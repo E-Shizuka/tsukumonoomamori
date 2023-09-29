@@ -1,29 +1,72 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import Footer from "../Components/Footer";
+import Footer from "../Components/FooterLogin";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 export default function Dashboard({ auth }) {
+    // const [plans, setPlans] = useState([]);
+
+    // useEffect(() => {
+    //     axios
+    //         .get("/plans") // /plans エンドポイントにアクセス
+    //         .then((response) => {
+    //             setPlans(response.data.plans);
+    //         })
+    //         .catch((error) => console.error(error));
+    // }, []);
+
+    // console.log(plans);
+
+    const [plans, setPlans] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        axios
+            .get("/plans")
+            .then((response) => {
+                setPlans(response.data.plans);
+                setLoading(false); // データ取得が完了したらloadingをfalseに設定
+            })
+            .catch((error) => {
+                console.error(error);
+                setLoading(false); // エラー時もloadingをfalseに設定
+            });
+    }, []);
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="ご案内" />
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg">
-                        <h2>開運の旅へ</h2>
-                        {/* <h3>{{ $plan->plan_name }}</h3> */}
+                        {loading ? (
+                            <p>Loading...</p>
+                        ) : (
+                            <>
+                                <h2>開運の旅へ</h2>
+                                <h3>{plans && plans[0].plan_name}</h3>
+                                <h3>【全体の流れ】</h3>
+                                <h4>{plans && plans[0].first_title}</h4>
+                                <p>{plans && plans[0].first_instruction}</p>
+                                <h4>{plans && plans[0].second_title}</h4>
+                                <p>{plans && plans[0].second_instruction}</p>
+                                <h4>{plans && plans[0].third_title}</h4>
+                                <p>{plans && plans[0].third_instruction}</p>
+                                <h4>{plans && plans[0].last_title}</h4>
+                                <p>{plans && plans[0].last_instruction}</p>
+                            </>
+                        )}
+                        {/* <h2>開運の旅へ</h2>
+                        <h3>{plans && plans[0].plan_name}</h3>
                         <h3>【全体の流れ】</h3>
-                        <h4>癒しのひととき</h4>
-                        <p>
-                            まずは温泉で心を温め、心身をリフレッシュしましょう。泉質の高い温泉は、禊の効果もあるだけでなく、この土地特有のエネルギーを感じることができます。
-                        </p>
-                        <h4>自然の力を体感</h4>
-                        <p>
-                            〇〇への訪問は、日常のストレスを癒し、自然のパワーを受け取る特別な場所です。ここで自然と調和し、心を浄化しましょう。
-                        </p>
-                        <h4>地元の美食を堪能</h4>
-                        <p>
-                            旅の中で地元の食材と料理を楽しむことは、この土地のパワーを味わう最良の方法です。地元の水は澄んでおり、野菜はその恵みを受けて育ち、パワースポットのエネルギーを豊かに含んでいます。
-                            旅の思い出を記録旅の神秘的な瞬間を写真に収め、そのパワーを日常生活に持ち帰ることができます。また、旅の思い出の投稿は他の人とシェアすることもできますし、ご自身で公開設定も選択できますので、お気軽にご利用いただけます。
-                        </p>
+                        <h4>{plans && plans[0].first_title}</h4>
+                        <p>{plans && plans[0].first_instruction}</p>
+                        <h4>{plans && plans[0].second_title}</h4>
+                        <p>{plans && plans[0].second_instruction}</p>
+                        <h4>{plans && plans[0].third_title}</h4>
+                        <p>{plans && plans[0].third_instruction}</p>
+                        <h4>{plans && plans[0].last_title}</h4>
+                        <p>{plans && plans[0].last_instruction}</p> */}
                     </div>
                     <div className=" overflow-hidden sm:rounded-lg">
                         <h3>【注意事項】</h3>
