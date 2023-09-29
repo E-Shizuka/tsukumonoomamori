@@ -80,6 +80,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/plans', [PlanController::class, 'index']);
+Route::get('/plan_select', [PlanController::class, 'show']);
 Route::get('/planlist',[PlanController::class,'planlist']);
 Route::get('/ryokans', [RyokanController::class, 'index']);
 Route::get('/omamoris', [OmamoriController::class, 'index']);
