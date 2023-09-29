@@ -4,6 +4,11 @@ import { Head } from "@inertiajs/react";
 import FooterLogin from "../components/FooterLogin";
 import Footer from "../Components/Footer";
 
+// メモ
+// $plan = Plan::find(1); // プランをID 1で取得する例
+// $ryokan = $plan->ryokan; // 関連する旅館を取得
+// $omamori = $plan->omamori; // 関連するお守りを取得
+
 function CommonContent() {
     return (
         <>
