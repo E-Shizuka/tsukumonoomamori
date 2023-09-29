@@ -5,7 +5,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 export default function Dashboard({ auth }) {
     const params = new URLSearchParams(window.location.search);
-    const id = params.get("p");
+    const id = params.get("p") - 1;
+    const next = params.get("p");
     console.log(id);
 
     const [plans, setPlans] = useState([]);
@@ -35,7 +36,7 @@ export default function Dashboard({ auth }) {
                             <p>Loading...</p>
                         ) : (
                             <>
-                                {plans &&
+                                {/* {plans &&
                                     plans.map((plan, index) => (
                                         <div key={index}>
                                             <h2>開運の旅へ</h2>
@@ -50,18 +51,18 @@ export default function Dashboard({ auth }) {
                                             <h4>{plan.last_title}</h4>
                                             <p>{plan.last_instruction}</p>
                                         </div>
-                                    ))}
-                                {/* <h2>開運の旅へ</h2>
-                                <h3>{plans && plans[0].plan_name}</h3>
+                                    ))} */}
+                                <h2>開運の旅へ</h2>
+                                <h3>{plans && plans[id].plan_name}</h3>
                                 <h3>【全体の流れ】</h3>
-                                <h4>{plans && plans[0].first_title}</h4>
-                                <p>{plans && plans[0].first_instruction}</p>
-                                <h4>{plans && plans[0].second_title}</h4>
-                                <p>{plans && plans[0].second_instruction}</p>
-                                <h4>{plans && plans[0].third_title}</h4>
-                                <p>{plans && plans[0].third_instruction}</p>
-                                <h4>{plans && plans[0].last_title}</h4>
-                                <p>{plans && plans[0].last_instruction}</p> */}
+                                <h4>{plans && plans[id].first_title}</h4>
+                                <p>{plans && plans[id].first_instruction}</p>
+                                <h4>{plans && plans[id].second_title}</h4>
+                                <p>{plans && plans[id].second_instruction}</p>
+                                <h4>{plans && plans[id].third_title}</h4>
+                                <p>{plans && plans[id].third_instruction}</p>
+                                <h4>{plans && plans[id].last_title}</h4>
+                                <p>{plans && plans[id].last_instruction}</p>
                             </>
                         )}
                     </div>
@@ -92,7 +93,7 @@ export default function Dashboard({ auth }) {
                         <button
                             onClick={() => {
                                 window.location.href =
-                                    route("plan-login") + `?p=${id}`;
+                                    route("plan-login") + `?p=${next}`;
                             }}
                             className="custom-button"
                         >
