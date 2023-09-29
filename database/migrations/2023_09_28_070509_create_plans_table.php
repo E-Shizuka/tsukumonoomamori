@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('third_instruction'); // 3つ目のミッション紹介
             $table->text('last_title'); // 4つ目のミッションタイトル
             $table->text('last_instruction'); // 4つ目のミッション紹介
+            $table->string('image_name');
             $table->string('plan_password'); // プランパスワード
             
             // 外部キー制約
