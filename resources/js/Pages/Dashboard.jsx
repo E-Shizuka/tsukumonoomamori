@@ -9,6 +9,7 @@ export default function Dashboard({ auth }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg">
                         <h2>開運の旅へ</h2>
+                        {/* <h3>{{ $plan->plan_name }}</h3> */}
                         <h3>【全体の流れ】</h3>
                         <h4>癒しのひととき</h4>
                         <p>
