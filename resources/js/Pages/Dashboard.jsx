@@ -33,6 +33,7 @@ export default function Dashboard({ auth }) {
             });
     }, []);
 
+    console.log(plans);
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="ご案内" />
