@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PlanResource;
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\SelectedPlan; // SelectedPlanモデルをインポート
 
 class PlanController extends Controller
 {
@@ -34,6 +36,39 @@ class PlanController extends Controller
     {
         //
     }
+
+    public function checkPassword(Request $request)
+{
+    // ユーザーがログインしていることを確認
+    if (!Auth::check()) {
+        return response()->json(['message' => 'Unauthorized'], 401);
+    }
+
+    // パスワードの入力を検証する
+    $inputPassword = $request->input('plan_password');
+    $planId = $request->input('plan_id'); // フロントエンドから送信されるプランID
+
+    // 指定したIDのPlanを取得し、plan変数に代入
+    $plan = Plan::find($planId);
+
+    if (!$plan) {
+        return response()->json(['message' => 'Plan not found'], 404);
+    }
+
+    if ($inputPassword === $plan->plan_password) {
+        // パスワードが一致した場合、追加の処理を実行
+        // 例：selected_plansテーブルにレコードを挿入
+        $selectedPlan = new SelectedPlan();
+        $selectedPlan->user_id = Auth::id(); // ログイン中のユーザーのIDを取得
+        $selectedPlan->plan_id = $planId; // フロントエンドから送信されたプランIDを使用
+        $selectedPlan->save();
+
+        return response()->json(['message' => 'Password is correct', 'success' => true]);
+    } else {
+        // パスワードが一致しない場合、エラーメッセージを返す
+        return response()->json(['message' => 'Invalid password', 'success' => false]);
+    }
+}
 
     /**
      * Display the specified resource.

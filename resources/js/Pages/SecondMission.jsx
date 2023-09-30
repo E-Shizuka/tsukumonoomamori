@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import Footer from "../Components/Footer";
+import Footer from "../Components/FooterLogin";
 import React, { Component, useState } from "react";
 export default function Dashboard({ auth }) {
     // ステートで選択されたファイルを管理
