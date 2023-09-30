@@ -5,7 +5,8 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RyokanController;
 use App\Http\Controllers\OmamoriController;
-
+use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -88,6 +89,8 @@ Route::get('/ryokans', [RyokanController::class, 'index']);
 Route::get('/omamoris', [OmamoriController::class, 'index']);
 Route::get('/missions', [MissionController::class, 'index']);
 Route::get('/mission-by-plan', [MissionController::class, 'showByPlanId']);
+Route::post('/makepost', [PostController::class, 'store']);
+
 
 
 

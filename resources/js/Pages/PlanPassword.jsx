@@ -43,7 +43,7 @@ export default function Dashboard({ auth }) {
                     // 追加の処理が成功した場合、次のページにリダイレクト
                     window.location.href =
                         route("first-mission") +
-                        `?id=${planId}&${selectedPlanId}`;
+                        `?id=${planId}&s=${selectedPlanId}`;
 
                     setPasswordMatch(true);
                 } else {
