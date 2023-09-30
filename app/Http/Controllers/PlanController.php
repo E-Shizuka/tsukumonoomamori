@@ -62,8 +62,12 @@ class PlanController extends Controller
         $selectedPlan->user_id = Auth::id(); // ログイン中のユーザーのIDを取得
         $selectedPlan->plan_id = $planId; // フロントエンドから送信されたプランIDを使用
         $selectedPlan->save();
+        
+        // return response()->json(['message' => 'Password is correct', 'success' => true]);
+        // 保存後にIDを取得
+        $selectedPlanId = $selectedPlan->id;
 
-        return response()->json(['message' => 'Password is correct', 'success' => true]);
+        return response()->json(['message' => 'Password is correct', 'success' => true, 'selectedPlanId' => $selectedPlanId]);
     } else {
         // パスワードが一致しない場合、エラーメッセージを返す
         return response()->json(['message' => 'Invalid password', 'success' => false]);

@@ -33,9 +33,18 @@ export default function Dashboard({ auth }) {
             .then((response) => {
                 // Laravelからの応答を処理
                 if (response.data.success) {
+                    // // 追加の処理が成功した場合、次のページにリダイレクト
+                    // window.location.href =
+                    //     route("first-mission") + `?id=${planId}`;
+
+                    // パスワードが一致した場合の処理
+                    const selectedPlanId = response.data.selectedPlanId;
+
                     // 追加の処理が成功した場合、次のページにリダイレクト
                     window.location.href =
-                        route("first-mission") + `?id=${planId}`;
+                        route("first-mission") +
+                        `?id=${planId}&${selectedPlanId}`;
+
                     setPasswordMatch(true);
                 } else {
                     // 追加の処理が失敗した場合の処理を行う

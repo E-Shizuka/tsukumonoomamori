@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RyokanController;
@@ -85,6 +86,9 @@ Route::get('/planlist',[PlanController::class,'planlist']);
 Route::post('/check_password',[PlanController::class,'checkPassword']);
 Route::get('/ryokans', [RyokanController::class, 'index']);
 Route::get('/omamoris', [OmamoriController::class, 'index']);
+Route::get('/missions', [MissionController::class, 'index']);
+Route::get('/mission-by-plan', [MissionController::class, 'showByPlanId']);
+
 
 
 require __DIR__.'/auth.php';
