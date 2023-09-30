@@ -2,7 +2,6 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import Footer from "../Components/FooterLogin";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 export default function Dashboard({ auth }) {
     const params = new URLSearchParams(window.location.search);
@@ -11,41 +10,35 @@ export default function Dashboard({ auth }) {
     const backid = params.get("p");
     // console.log(id);
     const [password, setPassword] = useState("");
-    const [planId, setPlanId] = useState(""); // プランIDの状態を管理
+    const [plan, setPlans] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [passwordMatch, setPasswordMatch] = useState(false); // パスワード一致状態
 
     useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        const backid = params.get("p");
+        // リクエストの完了を待つPromiseを作成
+        const fetchPlan = axios.get(`/plan_select?${id}`);
 
-        // プランIDを取得し、planIdに設定
-        setPlanId(backid);
-    }, []);
-
-    // console.log(plan.plan_password);
-    const checkPassword = () => {
-        // プランIDとパスワードをLaravelに送信
-        axios
-            .post("/check_password", {
-                plan_id: planId,
-                plan_password: password,
-            })
-            .then((response) => {
-                // Laravelからの応答を処理
-                if (response.data.success) {
-                    // 追加の処理が成功した場合、次のページにリダイレクト
-                    window.location.href =
-                        route("first-mission") + `?id=${planId}`;
-                    setPasswordMatch(true);
-                } else {
-                    // 追加の処理が失敗した場合の処理を行う
-                    console.log("追加の処理が失敗しました");
-                    setPasswordMatch(false);
-                }
+        Promise.all([fetchPlan]) // Promise.allは配列を受け取る必要があります
+            .then((planResponse) => {
+                setPlans(planResponse[0].data.plan); // planResponseは配列なので[0]を使用
+                setLoading(false);
             })
             .catch((error) => {
                 console.error(error);
+                setLoading(false); // どちらかのリクエストが失敗した場合もloadingをfalseに設定
             });
+    }, []);
+    // console.log(plan.plan_password);
+    const checkPassword = () => {
+        if (plan.plan_password === password) {
+            // パスワードが一致するプランが見つかった場合の処理
+            console.log("パスワードが一致しました。");
+            setPasswordMatch(true);
+        } else {
+            // パスワードが一致しない場合の処理
+            console.log("パスワードが一致しません。");
+            setPasswordMatch(false);
+        }
     };
 
     // console.log(plan);
@@ -55,29 +48,29 @@ export default function Dashboard({ auth }) {
             <Head title="癒しのひととき" />
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <>
-                        <div className="overflow-hidden sm:rounded-lg">
-                            <p>プランパスワードを入力してください。</p>
-                            <input
-                                type="hideen"
-                                placeholder="プランID"
-                                value={planId}
-                                onChange={(e) => setPlanId(`${backid}`)} // プランIDの入力を受け付ける
-                            />
-                            <input
-                                type="text"
-                                placeholder="プランパスワード"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            <button
-                                onClick={checkPassword}
-                                className="custom-button"
-                            >
-                                送信
-                            </button>
-                        </div>
-                    </>
+                    {loading ? (
+                        <p>Loading...</p>
+                    ) : (
+                        <>
+                            <div className="overflow-hidden sm:rounded-lg">
+                                <p>プランパスワードを入力してください。</p>
+                                <input
+                                    type="text"
+                                    placeholder="プランパスワード"
+                                    value={password}
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                />
+                                <button
+                                    onClick={checkPassword}
+                                    className="custom-button"
+                                >
+                                    送信
+                                </button>
+                            </div>
+                        </>
+                    )}
 
                     <div
                         id="next"
