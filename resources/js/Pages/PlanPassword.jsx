@@ -68,7 +68,7 @@ export default function Dashboard({ auth }) {
                         <div className="overflow-hidden sm:rounded-lg">
                             <p>プランパスワードを入力してください。</p>
                             <input
-                                type="hideen"
+                                type="hidden"
                                 placeholder="プランID"
                                 value={planId}
                                 onChange={(e) => setPlanId(`${backid}`)} // プランIDの入力を受け付ける

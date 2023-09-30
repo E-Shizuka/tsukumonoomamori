@@ -57,8 +57,8 @@ export default function Dashboard({ auth }) {
             .then((response) => {
                 // ポストが成功した場合の処理
                 console.log(response.data);
-                // window.location.href =
-                //     route("second-mission") + `?id=${id}&s=${select_id}`;
+                window.location.href =
+                    route("second-mission") + `?id=${id}&s=${select_id}`;
             })
             .catch((error) => {
                 // エラー処理
