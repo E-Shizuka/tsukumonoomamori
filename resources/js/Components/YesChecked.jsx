@@ -24,6 +24,8 @@ function yesChecked() {
                 checked={yesChecked}
                 onChange={handleYesChange}
                 className="checkbox"
+                name="photo_privacy"
+                value="0"
             />
             いいえ
             <input
@@ -31,6 +33,8 @@ function yesChecked() {
                 checked={noChecked}
                 onChange={handleNoChange}
                 className="checkbox"
+                name="photo_privacy"
+                value="1"
             />
         </div>
     );

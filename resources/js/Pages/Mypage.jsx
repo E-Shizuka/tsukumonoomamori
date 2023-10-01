@@ -5,6 +5,8 @@ import YesChecked from "../Components/YesChecked";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import React, { useEffect, useState } from "react";
+// import Carbon from "carbon";
 
 export default function Dashboard({ auth }) {
     const sliderSettings = {
@@ -14,77 +16,122 @@ export default function Dashboard({ auth }) {
         slidesToShow: 1, // 一度に表示するスライド数
         slidesToScroll: 1, // 一度のスクロールで動かすスライド数
     };
+
+    const [selectedplanlist, setSelectedPlanlist] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [select_posts, setSelectPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // 選択されたプランリストを取得
+                const selectedplanlistResponse = await axios.get(
+                    "/selectedplanlist"
+                );
+                setSelectedPlanlist(selectedplanlistResponse.data);
+                const response = await axios.get("/user-post");
+                setPosts(response.data);
+
+                const postresponse = await axios.get("/selectedpost");
+                setSelectPosts(postresponse.data);
+                // console.log("select_posts", postresponse.data);
+                // console.log("all_posts", postresponse.data[0].posts);
+
+                // 両方の非同期処理が完了したら loading を false に設定
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData(); // fetchData 関数を呼び出す
+    }, []);
+
+    function formatDate(dateString) {
+        const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+        const date = new Date(dateString);
+        return (
+            date
+                .toLocaleDateString("ja-JP", options)
+                .replace(/\//g, "年")
+                .replace("-", "月") + "日"
+        );
+    }
+
+    console.log("ポスト", posts);
+    console.log("select_posts", select_posts);
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="mypage " />
             <div className="py-12">
-                <div className="sm:fixed top-0 right-0 p-0 flex justify-end items-center space-x-4">
-                    <p className="mr-2">投稿可否</p>
-                    <YesChecked />
-                </div>
-                <div className="sm:fixed sm:top-0 sm:right-0 p-0 text-right">
-                    <button
-                        onClick={() => {
-                            window.location.href = route("mypage");
-                        }}
-                        className="custom-button"
-                    >
-                        修正
-                    </button>
-                </div>
-                <div className="mb-24 bg_color_sub px-8">
-                    <Slider {...sliderSettings}>
-                        <div className="py-6">
-                            <div className="card lg:card-side bg-base-100 shadow-xl">
-                                <figure>
-                                    {/* 写真は自分が撮影したものが出るように */}
-                                    <img
-                                        src="/images/oogosha_oosugi.jpg"
-                                        alt="natural"
-                                    />
-                                </figure>
-                                <div className="card-body">
-                                    <p>mission場所　日付</p>
-                                    <p>ひとことコメント：</p>
-                                    <p>お守り：銀座きもの装</p>
-                                </div>
-                            </div>
+                {loading ? (
+                    <p>Loading...</p>
+                ) : (
+                    <>
+                        <div>
+                            <h2>これまでの体験一覧</h2>
                         </div>
-                        <div className="py-6">
-                            <div className="card lg:card-side bg-base-100 shadow-xl ">
-                                <figure>
-                                    {/* 写真は自分が撮影したものが出るように */}
-                                    <img
-                                        src="/images/oogosha_oosugi.jpg"
-                                        alt="natural"
-                                    />
-                                </figure>
-                                <div className="card-body">
-                                    <p>mission場所　日付</p>
-                                    <p>ひとことコメント：</p>
-                                    <p>お守り：銀座きもの装</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="py-6">
-                            <div className="card lg:card-side bg-base-100 shadow-xl">
-                                <figure>
-                                    {/* 写真は自分が撮影したものが出るように */}
-                                    <img
-                                        src="/images/oogosha_oosugi.jpg"
-                                        alt="natural"
-                                    />
-                                </figure>
-                                <div className="card-body">
-                                    <p>mission場所　日付</p>
-                                    <p>ひとことコメント：</p>
-                                    <p>お守り：銀座きもの装</p>
-                                </div>
-                            </div>
-                        </div>
-                    </Slider>
-                </div>
+                        {select_posts &&
+                            select_posts.map((plan, index) => {
+                                console.log("post", plan);
+                                return (
+                                    <div
+                                        className="mb-20 bg_color_sub px-8"
+                                        key={index}
+                                    >
+                                        <div className="overflow-hidden sm:rounded-lg">
+                                            <p>
+                                                体験プラン:
+                                                {plan.plan.plan_name}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <Slider {...sliderSettings}>
+                                                {plan.posts.map(
+                                                    (post, index) => (
+                                                        <div
+                                                            key={index}
+                                                            className="py-6"
+                                                        >
+                                                            <div className="card lg:card-side bg-base-100">
+                                                                <figure>
+                                                                    <img
+                                                                        src={`/storage/images/post_images/${post.image_name}`}
+                                                                    />
+                                                                </figure>
+                                                                <div className="card-body">
+                                                                    <p className="text-right">
+                                                                        {formatDate(
+                                                                            post.created_at
+                                                                        )}
+                                                                        {/* {
+                                                                            post.created_at
+                                                                        } */}
+                                                                    </p>
+                                                                    <p>
+                                                                        ひとことコメント：
+                                                                    </p>
+                                                                    <p>
+                                                                        {
+                                                                            post.comment
+                                                                        }
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </Slider>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                    </>
+                )}
             </div>
+
             <style>
                 {`
                     .custom-button {
