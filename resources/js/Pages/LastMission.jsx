@@ -98,8 +98,6 @@ export default function Dashboard({ auth }) {
         }
     };
 
-    //送信処理
-
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="思い出を記録 " />
@@ -110,9 +108,10 @@ export default function Dashboard({ auth }) {
                     <div className="mb-24 bg_color_sub px-8">
                         <div className="overflow-hidden sm:rounded-lg">
                             <h2>旅の思い出を記録 </h2>
+                            <p>これまでの旅を1つにまとめて記録します。</p>
                             <p>
-                                これまでの旅を1つにまとめて記録します。
-                                投稿の外部への公開可否についてご確認の上ご登録ください。この公開可否についてはmypageからいつでも変更できます。
+                                ※広報活動のため、投稿いただきましたお写真を二次利用させて頂きたく、確認をさせていただいております。
+                                つきましては下記のフォーマットより写真公開可否をお知らせください。
                             </p>
                             <p>
                                 体験旅館:
@@ -153,7 +152,7 @@ export default function Dashboard({ auth }) {
                                 />
 
                                 <div className="flex my-2">
-                                    <p className="mx-4">投稿可否</p>
+                                    <p className="mx-4">写真公開可否</p>
                                     <select
                                         name="photo_privacy"
                                         onChange={(e) =>

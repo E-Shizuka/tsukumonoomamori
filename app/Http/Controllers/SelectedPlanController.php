@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\SelectedPlanResource;
 use App\Models\SelectedPlan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SelectedPlanController extends Controller
@@ -43,9 +44,22 @@ class SelectedPlanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SelectedPlan $selectedPlan)
+    public function show(Request $request)
     {
-        //
+        if (Auth::check()) {
+        // ログインユーザーのIDを取得
+        $userId = Auth::id();
+
+        // ログインユーザーの投稿を取得
+        // $selected_plans = SelectedPlan::where('user_id', $userId)->with('posts')->get();
+        $selected_plans = SelectedPlan::where('user_id', $userId)->with(['posts', 'plan'])->get();
+        
+        return response()->json($selected_plans);
+    } else {
+        // ユーザーが認証されていない場合の処理を追加
+        return response()->json(['message' => '認証されていません'], 401);
+    
+    }
     }
 
     /**
