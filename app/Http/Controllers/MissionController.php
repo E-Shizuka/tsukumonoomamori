@@ -2,26 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\SelectedPlanResource;
-use App\Models\SelectedPlan;
+use App\Models\Mission;
 use Illuminate\Http\Request;
 
-class SelectedPlanController extends Controller
+class MissionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // データベース内のすべてのPlanを取得し、plan変数に代入
-      $selected_plans = SelectedPlan::all();
-      return response()->json(['selected_plans' => $selected_plans]);
+           // データベース内のすべてのPlanを取得し、plan変数に代入
+      $missions = Mission::all();
+      return response()->json(['missions' => $missions]);
     }
 
-    public function selectedplanlist()
+    public function showByPlanId(Request $request)
     {
-        $selected_plans = SelectedPlan::all();
-        return SelectedPlanResource::collection($selected_plans);
+        // URLから'id'パラメータを取得
+        $planId = $request->input('id');
+
+        // 指定されたplan_idに一致するミッションを取得
+        $missions = Mission::where('plan_id', $planId)->get();
+
+        return response()->json(['missions' => $missions]);
     }
 
     /**
@@ -38,12 +42,12 @@ class SelectedPlanController extends Controller
     public function store(Request $request)
     {
         //
-           }
+    }
 
     /**
      * Display the specified resource.
      */
-    public function show(SelectedPlan $selectedPlan)
+    public function show(Mission $mission)
     {
         //
     }
@@ -51,7 +55,7 @@ class SelectedPlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SelectedPlan $selectedPlan)
+    public function edit(Mission $mission)
     {
         //
     }
@@ -59,7 +63,7 @@ class SelectedPlanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SelectedPlan $selectedPlan)
+    public function update(Request $request, Mission $mission)
     {
         //
     }
@@ -67,7 +71,7 @@ class SelectedPlanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SelectedPlan $selectedPlan)
+    public function destroy(Mission $mission)
     {
         //
     }

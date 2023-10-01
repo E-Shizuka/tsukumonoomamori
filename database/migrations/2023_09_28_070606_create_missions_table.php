@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('mission_instruction');
             $table->text('description');
 
-            $table->foreignId('ryokan_id')->nullable()->constrained();
+            $table->foreignId('plan_id')->nullable()->constrained();
             
             $table->timestamps();
             $table->boolean('delete')->default(false);

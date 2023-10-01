@@ -25,4 +25,10 @@ class SelectedPlan extends Model
         return $this->belongsTo(Plan::class, 'plan_id','id');
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'selected_plan_id');
+    }
+
+
 }
