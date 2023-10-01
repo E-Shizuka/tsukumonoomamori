@@ -19,21 +19,21 @@ class PostController extends Controller
     }
 
     public function getPostsBySpId(Request $request)
-{
-    $sp_id = $request->input('sp_id'); // 'sp_id'をクエリパラメータとして取得
+    {
+        $sp_id = $request->input('sp_id'); // 'sp_id'をクエリパラメータとして取得
 
-    $posts = Post::where('selected_plan_id', $sp_id)->get();
-    // 各投稿のcreated_atをフォーマットする
-    $formattedPosts = $posts->map(function ($post) {
-        $createdAt = Carbon::parse($post->created_at);
-        $formattedDate = $createdAt->format('Y年m月d日');
-        $post->formatted_created_at = $formattedDate;
-        return $post;
-    });
+        $posts = Post::where('selected_plan_id', $sp_id)->get();
+        // 各投稿のcreated_atをフォーマットする
+        $formattedPosts = $posts->map(function ($post) {
+            $createdAt = Carbon::parse($post->created_at);
+            $formattedDate = $createdAt->format('Y年m月d日');
+            $post->formatted_created_at = $formattedDate;
+            return $post;
+        });
 
-    return response()->json($formattedPosts);
-    // return response()->json($posts);
-}
+        return response()->json($formattedPosts);
+        // return response()->json($posts);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,9 +78,22 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Request $request)
     {
-        //
+        if (Auth::check()) {
+        // ログインユーザーのIDを取得
+        $userId = Auth::id();
+
+        // ログインユーザーの投稿を取得
+        $posts = Post::where('user_id', $userId)->get()->groupBy('selected_plan');
+        
+        return response()->json($posts);
+    } else {
+        // ユーザーが認証されていない場合の処理を追加
+        return response()->json(['message' => '認証されていません'], 401);
+    
+    }
+    
     }
 
     /**
