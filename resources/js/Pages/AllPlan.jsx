@@ -33,18 +33,6 @@ function CommonContent() {
                 console.error(error);
                 setLoading(false); // どちらかのリクエストが失敗した場合もloadingをfalseに設定
             });
-        // // 両方のリクエストが成功した場合にデータを設定しloadingをfalseに設定
-        // Promise.all([fetchPlans, fetchRyokans, fetchOmamoris])
-        //     .then(([plansResponse, ryokansResponse, omamorisResponse]) => {
-        //         setPlans(plansResponse.data.plans);
-        //         setRyokans(ryokansResponse.data.ryokans);
-        //         setOmamoris(omamorisResponse.data.omamoris);
-        //         setLoading(false);
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //         setLoading(false); // どちらかのリクエストが失敗した場合もloadingをfalseに設定
-        //     });
     }, []);
 
     console.log(plans);

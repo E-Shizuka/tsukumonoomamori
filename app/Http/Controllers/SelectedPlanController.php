@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SelectedPlanResource;
 use App\Models\SelectedPlan;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,12 @@ class SelectedPlanController extends Controller
         // データベース内のすべてのPlanを取得し、plan変数に代入
       $selected_plans = SelectedPlan::all();
       return response()->json(['selected_plans' => $selected_plans]);
+    }
+
+    public function selectedplanlist()
+    {
+        $selected_plans = SelectedPlan::all();
+        return SelectedPlanResource::collection($selected_plans);
     }
 
     /**

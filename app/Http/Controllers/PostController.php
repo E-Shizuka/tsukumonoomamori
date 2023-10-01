@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -16,6 +17,23 @@ class PostController extends Controller
     {
         //
     }
+
+    public function getPostsBySpId(Request $request)
+{
+    $sp_id = $request->input('sp_id'); // 'sp_id'をクエリパラメータとして取得
+
+    $posts = Post::where('selected_plan_id', $sp_id)->get();
+    // 各投稿のcreated_atをフォーマットする
+    $formattedPosts = $posts->map(function ($post) {
+        $createdAt = Carbon::parse($post->created_at);
+        $formattedDate = $createdAt->format('Y年m月d日');
+        $post->formatted_created_at = $formattedDate;
+        return $post;
+    });
+
+    return response()->json($formattedPosts);
+    // return response()->json($posts);
+}
 
     /**
      * Show the form for creating a new resource.

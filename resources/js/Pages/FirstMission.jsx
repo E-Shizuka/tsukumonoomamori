@@ -48,6 +48,7 @@ export default function Dashboard({ auth }) {
         const formData = new FormData();
         formData.append("image", imageFile);
         formData.append("comment", comment);
+        formData.append("mission_id", "1");
         formData.append("selected_plan_id", select_id);
 
         axios
@@ -105,11 +106,6 @@ export default function Dashboard({ auth }) {
                                         type="file"
                                         accept="image/*"
                                         onChange={handleFileChange}
-                                    />
-                                    <input
-                                        type="hidden"
-                                        name="mission_id"
-                                        value="1"
                                     />
                                     <input
                                         type="hidden"
