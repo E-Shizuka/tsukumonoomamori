@@ -145,7 +145,7 @@ export default function Dashboard({ auth }) {
                                         onClick={submitPost}
                                         className="custom-button"
                                     >
-                                        投稿して次の体験へ
+                                        投稿して体験記録の確認へ
                                     </button>
                                 </form>
                             </div>
@@ -185,7 +185,7 @@ export default function Dashboard({ auth }) {
 
                                 `}
             </style>
-            <Footer />
+            {/* <Footer /> */}
         </AuthenticatedLayout>
     );
 }

@@ -271,7 +271,7 @@ export default function Dashboard({ auth }) {
 
                                 `}
             </style>
-            <Footer />
+            {/* <Footer /> */}
         </AuthenticatedLayout>
     );
 }
