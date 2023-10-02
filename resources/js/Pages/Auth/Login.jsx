@@ -80,7 +80,7 @@ export default function Login({ status, canResetPassword }) {
                             }
                         />
                         <span className="ml-2 text-sm text-gray-600">
-                            入力情報を記録する
+                            ログイン状態を保持する
                         </span>
                     </label>
                 </div>
@@ -89,22 +89,42 @@ export default function Login({ status, canResetPassword }) {
                     {canResetPassword && (
                         <Link
                             href={route("password.request")}
-                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="mr-1 underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
                             パスワードをお忘れた方はこちら
                         </Link>
                     )}
 
-                    <button className="custom-button" disabled={processing}>
+                    <button className="red-button" disabled={processing}>
                         ログイン
                     </button>
                 </div>
             </form>
+            <div className="flex flex-col items-center mt-36 my-8">
+                <div className="mb-16">
+                    <button
+                        onClick={() => {
+                            window.location.href = route("welcome");
+                        }}
+                        className="custom-button"
+                    >
+                        トップページへ戻る
+                    </button>
+                </div>
+            </div>
             <style>
                 {`
                     .custom-button {
                         background-color: #f19072; /* ボタンの背景色 */
                         color: black; /* ボタンのテキスト色 */
+                        padding: 8px 16px; /* ボタンのパディング */
+                        border-radius: 4px; /* ボタンの角丸 */
+                        border: none; /* ボーダーなし */
+                    }
+
+                    .red-button {
+                        background-color: #d3381c; /* ボタンの背景色 */
+                        color: white; /* ボタンのテキスト色 */
                         padding: 8px 16px; /* ボタンのパディング */
                         border-radius: 4px; /* ボタンの角丸 */
                         border: none; /* ボーダーなし */
