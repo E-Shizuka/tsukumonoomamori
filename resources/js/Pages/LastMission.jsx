@@ -12,7 +12,7 @@ export default function Dashboard({ auth }) {
     const id = params.get("id"); //plan_id
     const sp_id = params.get("s"); //selected_plan_id
     const s_id = params.get("s") - 1; //selected_plan_idの配列のために-1
-    console.log(s_id);
+    // console.log(s_id);
     // console.log(id);
     // console.log(select_id);
 
@@ -55,15 +55,15 @@ export default function Dashboard({ auth }) {
         fetchData(); // fetchData 関数を呼び出す
     }, [sp_id]);
 
-    console.log(selectedplanlist);
-    console.log(posts);
+    // console.log(selectedplanlist);
+    // console.log(posts);
     // console.log(posts[0].image_name);
     let datePortion = "";
     if (posts.length > 0 && posts[0].created_at) {
         const dateString = posts[0].created_at;
         datePortion = dateString.split("T")[0];
     }
-    console.log(datePortion);
+    // console.log(datePortion);
 
     const selectedplan = selectedplanlist.data; // s_id番目の要素を取得
     // console.log(selectedplan);
@@ -82,14 +82,14 @@ export default function Dashboard({ auth }) {
             ryokan_id: selectedplan && selectedplan[s_id].ryokan_id,
             photo_privacy: photoPrivacy,
         };
-        console.log("送信するデータ:", formData);
+        // console.log("送信するデータ:", formData);
 
         try {
             // Axiosを使ってLaravelエンドポイントにPOSTリクエストを送信
             const response = await axios.post("/participation", formData);
             window.location.href = route("mypage");
             // 必要に応じてレスポンスを処理
-            console.log(response.data);
+            // console.log(response.data);
 
             // ユーザーにリダイレクトまたは成功メッセージを表示するなど、アプリの要件に応じて処理を追加
         } catch (error) {
@@ -167,7 +167,7 @@ export default function Dashboard({ auth }) {
 
                                 {/* 送信ボタン */}
                                 <button type="submit" className="custom-button">
-                                    投稿
+                                    公開可否確定
                                 </button>
                             </form>
                         </div>

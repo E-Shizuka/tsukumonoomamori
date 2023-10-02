@@ -52,7 +52,7 @@ class SelectedPlanController extends Controller
 
         // ログインユーザーの投稿を取得
         // $selected_plans = SelectedPlan::where('user_id', $userId)->with('posts')->get();
-        $selected_plans = SelectedPlan::where('user_id', $userId)->with(['posts', 'plan'])->get();
+        $selected_plans = SelectedPlan::where('user_id', $userId)->with(['posts', 'plan'])->orderBy('created_at', 'desc') ->get();
         
         return response()->json($selected_plans);
     } else {

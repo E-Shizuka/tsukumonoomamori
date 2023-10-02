@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useEffect, useState } from "react";
-// import Carbon from "carbon";
 
 export default function Dashboard({ auth }) {
     const sliderSettings = {
@@ -59,8 +58,8 @@ export default function Dashboard({ auth }) {
         );
     }
 
-    console.log("ポスト", posts);
-    console.log("select_posts", select_posts);
+    // console.log("ポスト", posts);
+    // console.log("select_posts", select_posts);
 
     return (
         <AuthenticatedLayout user={auth.user}>
@@ -75,7 +74,7 @@ export default function Dashboard({ auth }) {
                         </div>
                         {select_posts &&
                             select_posts.map((plan, index) => {
-                                console.log("post", plan);
+                                // console.log("post", plan);
                                 return (
                                     <div
                                         className="mb-20 bg_color_sub px-8"

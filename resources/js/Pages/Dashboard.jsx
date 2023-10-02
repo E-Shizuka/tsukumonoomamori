@@ -7,7 +7,7 @@ export default function Dashboard({ auth }) {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("p") - 1;
     const next = params.get("p");
-    console.log(id);
+    // console.log(id);
 
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -25,7 +25,7 @@ export default function Dashboard({ auth }) {
             });
     }, []);
 
-    console.log(plans);
+    // console.log(plans);
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="ご案内" />

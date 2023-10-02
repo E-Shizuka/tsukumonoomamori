@@ -35,10 +35,10 @@ function CommonContent() {
             });
     }, []);
 
-    console.log(plans);
+    // console.log(plans);
     // console.log(ryokans);
     // console.log(omamoris);
-    console.log(planlist);
+    // console.log(planlist);
 
     return (
         <>

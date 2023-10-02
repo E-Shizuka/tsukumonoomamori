@@ -21,7 +21,7 @@ export default function Dashboard({ auth }) {
             .get(`/mission-by-plan?id=${id}`)
             .then((response) => {
                 setMissions(response.data.missions);
-                console.log(response.data.missions);
+                // console.log(response.data.missions);
                 setLoading(false); // データ取得が完了したらloadingをfalseに設定
             })
             .catch((error) => {
@@ -45,6 +45,21 @@ export default function Dashboard({ auth }) {
     };
 
     const submitPost = () => {
+        if (!imageFile && !comment.trim()) {
+            // 画像もコメントも入力されていない場合にアラートを表示
+            alert("コメントを入力し、画像を選択してください");
+            return; // フォームの送信を中止
+        }
+        if (!imageFile) {
+            // 画像が選択されていない場合にアラートを表示
+            alert("画像を選択してください");
+            return; // フォームの送信を中止
+        }
+        if (!comment.trim()) {
+            // コメントが空の場合にアラートを表示
+            alert("コメントを入力してください");
+            return; // フォームの送信を中止
+        }
         const formData = new FormData();
         formData.append("image", imageFile);
         formData.append("comment", comment);
@@ -101,7 +116,7 @@ export default function Dashboard({ auth }) {
                                             setComment(e.target.value)
                                         }
                                     />
-                                    <p>②写真を撮る</p>
+                                    <p>②お守りが映るように記念写真を撮る</p>
                                     <input
                                         type="file"
                                         accept="image/*"
