@@ -52,39 +52,75 @@ export default function Dashboard({ auth }) {
                                             <p>{plan.last_instruction}</p>
                                         </div>
                                     ))} */}
-                                <h2>開運の旅へ</h2>
-                                <h3>{plans && plans[id].plan_name}</h3>
-                                <h3>【全体の流れ】</h3>
-                                <h4>{plans && plans[id].first_title}</h4>
-                                <p>{plans && plans[id].first_instruction}</p>
-                                <h4>{plans && plans[id].second_title}</h4>
-                                <p>{plans && plans[id].second_instruction}</p>
-                                <h4>{plans && plans[id].third_title}</h4>
-                                <p>{plans && plans[id].third_instruction}</p>
-                                <h4>{plans && plans[id].last_title}</h4>
-                                <p>{plans && plans[id].last_instruction}</p>
+                                <h2 className="title font-semibold text-2xl text-gray-800 leading-tight ml-2 my-4">
+                                    開運の旅へ！
+                                </h2>
+                                <h3 className="font-semibold text-lg text-gray-800 leading-tight m-2">
+                                    体験プラン：{plans && plans[id].plan_name}
+                                </h3>
+                                <h3 className="font-semibold text-gray-800 leading-tight my-2">
+                                    【全体の流れ】
+                                </h3>
+                                <div className="bg-white m-2 rounded p-2">
+                                    <h3 className="font-semibold text-gray-800 leading-tight m-2">
+                                        {plans && plans[id].first_title}
+                                    </h3>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
+                                        {plans && plans[id].first_instruction}
+                                    </p>
+                                </div>
+                                <div className="bg-white m-2 rounded p-2">
+                                    <h3 className="font-semibold text-gray-800 leading-tight m-2">
+                                        {plans && plans[id].second_title}
+                                    </h3>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
+                                        {plans && plans[id].second_instruction}
+                                    </p>
+                                </div>
+                                <div className="bg-white m-2 rounded p-2">
+                                    <h3 className="font-semibold text-gray-800 leading-tight m-2">
+                                        {plans && plans[id].third_title}
+                                    </h3>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
+                                        {plans && plans[id].third_instruction}
+                                    </p>
+                                </div>
+                                <div className="bg-white m-2 rounded p-2">
+                                    <h3 className="font-semibold text-gray-800 leading-tight m-2">
+                                        {plans && plans[id].last_title}
+                                    </h3>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
+                                        {plans && plans[id].last_instruction}
+                                    </p>
+                                </div>
                             </>
                         )}
                     </div>
                     <div className=" overflow-hidden sm:rounded-lg">
-                        <h3>【注意事項】</h3>
-                        <p>
+                        <h3 className="font-semibold text-gray-800 leading-tight my-2">
+                            【注意事項】
+                        </h3>
+                        <p className="text-sm text-gray-800 leading-tight m-2">
                             開運の旅へ出発する際に、以下の注意事項を守りましょう。これらのアドバイスは、パワースポットを訪れる際に大切なポイントです。
                         </p>
 
-                        <p>服装について</p>
-                        <p>
+                        <p className="text-sm text-gray-800 leading-tight m-2">
+                            服装について
+                        </p>
+                        <p className="text-sm text-gray-800 leading-tight m-2">
                             パワースポットへ向かう際は、歩きやすい服装を選びましょう。また、お守りは洋服の上から羽織ること
                         </p>
-                        <p>パワースポットでの禁止事項について</p>
-                        <p>
+                        <p className="text-sm text-gray-800 leading-tight m-2">
+                            パワースポットでの禁止事項について
+                        </p>
+                        <p className="text-sm text-gray-800 leading-tight m-2">
                             パワースポットにあるものは、神聖なものであり、その場所にとどまるべきです。石ころや葉っぱひとつにも、特別な意味が込められています。これらを外部に持ち出すことは、ルール違反であり、神域への不敬です。自然と神聖な場所を尊重しましょう。
                         </p>
-                        <p>
+                        <p className="text-sm text-gray-800 leading-tight m-2">
                             常識外れの行動をすると、因果応報の原則に従い、それがあなたに返ってくることがあります。せっかくの開運の旅ですので、パワースポットでの行動には留意し、神様や自然に感謝の気持ちを忘れずに持ちましょう。
                         </p>
 
-                        <p>
+                        <p className="text-sm text-gray-800 leading-tight m-2">
                             パワースポット巡りは素晴らしい経験ですが、その場所とその力を尊重し、感謝の心を持って訪れることが大切です。安全で幸せな旅をお楽しみください。
                         </p>
                     </div>
@@ -133,6 +169,10 @@ export default function Dashboard({ auth }) {
                     .custom-button:hover {
                         background-color: #d3381c; /* ホバー時の背景色 */
                         color: white; /* ボタンのテキスト色 */
+                    }
+
+                    .title {
+                        color: #d3381c; /* 赤 */
                     }
                     .bg_color_sub {
                         background-color: #fff1cf;

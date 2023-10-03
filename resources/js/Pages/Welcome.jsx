@@ -112,9 +112,11 @@ export default function Welcome({ auth, header, phpVersion }) {
                         /> */}
 
                         <div className="mt-2">
-                            <h1>
-                                「着るお守り」を纏い、神秘な力が宿るパワースポットへの開運の旅へ！
-                            </h1>
+                            <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                                「着るお守り」を纏い、
+                                <br />
+                                パワースポットへの開運の旅へ！
+                            </h2>
                         </div>
                         <div className="flex w-full">
                             <div
@@ -128,14 +130,16 @@ export default function Welcome({ auth, header, phpVersion }) {
                                 }}
                             ></div>
                             <div className="w-1/2 flex flex-col justify-center bg_color_main">
-                                <h1 className="ml-2">つくものお守り</h1>
+                                <h1 className="font-bold text-xl text-white leading-tight ml-2">
+                                    つくものお守り
+                                </h1>
                             </div>
                         </div>
-                        <div className="mb-8">
-                            <p>
+                        <div className="bg-white mt-2 rounded p-2 mb-8 ">
+                            <p className="text-sm text-gray-800 leading-tight m-2">
                                 「着るお守り」には長い年月をかけて磨かれた技術や職人の卓越した技術が息づいています。
                             </p>
-                            <p>
+                            <p className="text-sm text-gray-800 leading-tight m-2">
                                 伝統工芸品には、研究心や向上心、使い手への温かい気持ち、そして品物に対する愛情など、さまざまな想いが込められています。これらの想いが詰まった工芸品には、魂が宿ると言えるでしょう。
                                 日本には道具を100年以上も大切に使い続けることで、その道具自体がつくも神として守り神になるという伝承があります。この伝承を元に私たちは「着るお守り」を作りました。このお守りは、大切に愛着をもって使うことで、お守りに宿る魂が皆様の力になってくれることでしょう。
                             </p>
