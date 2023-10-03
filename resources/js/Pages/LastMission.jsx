@@ -107,25 +107,33 @@ export default function Dashboard({ auth }) {
                 ) : (
                     <div className="mb-24 bg_color_sub px-8">
                         <div className="overflow-hidden sm:rounded-lg">
-                            <h2>旅の思い出を記録 </h2>
-                            <p>これまでの旅を1つにまとめて記録します。</p>
-                            <p>
+                            <h2 className="font-bold text-gray-800 leading-tight m-2 mb-5">
+                                旅の思い出を記録
+                            </h2>
+                            <p className="text-sm text-gray-800 leading-tight m-2">
+                                これまでの旅を1つにまとめて記録します。
+                            </p>
+                            <p className="text-sm text-gray-800 leading-tight m-2">
                                 ※広報活動のため、投稿いただきましたお写真を二次利用させて頂きたく、確認をさせていただいております。
                                 つきましては下記のフォーマットより写真公開可否をお知らせください。
                             </p>
-                            <p>
-                                体験旅館:
-                                {selectedplan && selectedplan[s_id].ryokan_name}
-                            </p>
-                            <p>
-                                体験プラン:
-                                {selectedplan && selectedplan[s_id].plan_name}
-                            </p>
-                            <p>
-                                お守り：
-                                {selectedplan &&
-                                    selectedplan[s_id].omamori_name}
-                            </p>
+                            <div className="bg-white m-2 rounded p-2">
+                                <p className="text-sm font-semibold text-gray-800 leading-tight m-2">
+                                    体験旅館:
+                                    {selectedplan &&
+                                        selectedplan[s_id].ryokan_name}
+                                </p>
+                                <p className="text-sm font-semibold text-gray-800 leading-tight m-2">
+                                    体験プラン:
+                                    {selectedplan &&
+                                        selectedplan[s_id].plan_name}
+                                </p>
+                                <p className="text-sm font-semibold text-gray-800 leading-tight m-2">
+                                    お守り：
+                                    {selectedplan &&
+                                        selectedplan[s_id].omamori_name}
+                                </p>
+                            </div>
                             <form onSubmit={handleSubmit}>
                                 {/* ここに入力フィールドを追加 */}
 
@@ -152,7 +160,9 @@ export default function Dashboard({ auth }) {
                                 />
 
                                 <div className="flex my-2">
-                                    <p className="mx-4">写真公開可否</p>
+                                    <h3 className="font-semibold text-gray-800 leading-tight m-2">
+                                        写真公開可否
+                                    </h3>
                                     <select
                                         name="photo_privacy"
                                         onChange={(e) =>
@@ -166,9 +176,14 @@ export default function Dashboard({ auth }) {
                                 </div>
 
                                 {/* 送信ボタン */}
-                                <button type="submit" className="custom-button">
-                                    公開可否確定
-                                </button>
+                                <div className="flex justify-center my-4">
+                                    <button
+                                        type="submit"
+                                        className="custom-button"
+                                    >
+                                        公開可否確定
+                                    </button>
+                                </div>
                             </form>
                         </div>
                         {/* <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center">
@@ -182,7 +197,9 @@ export default function Dashboard({ auth }) {
                             </button>
                         </div> */}
                         <div>
-                            <h2>体験記プレビュー</h2>
+                            <h2 className="font-bold text-gray-800 leading-tight m-2 mb-5">
+                                体験記プレビュー
+                            </h2>
                         </div>
                         <Slider {...sliderSettings}>
                             <div className="py-6">

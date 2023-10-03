@@ -93,33 +93,45 @@ export default function Dashboard({ auth }) {
                         <>
                             <div className="overflow-hidden sm:rounded-lg">
                                 <form encType="multipart/form-data">
-                                    <h2>
+                                    <h2 className="font-bold text-gray-800 leading-tight m-2 mb-5">
                                         {missions && missions[2].mission_title}
                                     </h2>
-                                    <p>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
                                         {missions && missions[2].mission_place}
                                     </p>
-                                    <p>パワースポットのご紹介</p>
-                                    <p>{missions && missions[2].description}</p>
-                                    <h3>ミッション</h3>
-                                    <p>
+                                    <h2 className="font-semibold text-gray-800 leading-tight m-2">
+                                        パワースポットのご紹介
+                                    </h2>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
+                                        {missions && missions[2].description}
+                                    </p>
+                                    <h3 className="font-semibold text-gray-800 leading-tight m-2">
+                                        ミッション
+                                    </h3>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
                                         ①
                                         {missions &&
                                             missions[2].mission_instruction}
                                     </p>
-                                    <p>ひとことコメント・感想を記録</p>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
+                                        ひとことコメント・感想を記録
+                                    </p>
                                     <input
                                         type="text"
+                                        className="text-sm text-gray-800 leading-tight m-2 p-2 w-5/6"
                                         placeholder="コメント"
                                         value={comment}
                                         onChange={(e) =>
                                             setComment(e.target.value)
                                         }
                                     />
-                                    <p>②お守りが映るように記念写真を撮る</p>
+                                    <p className="text-sm text-gray-800 leading-tight m-2">
+                                        ②お守りが映るように記念写真を撮る
+                                    </p>
                                     <input
                                         type="file"
                                         accept="image/*"
+                                        className="text-sm text-gray-800 leading-tight m-2"
                                         onChange={handleFileChange}
                                     />
                                     <input
@@ -140,13 +152,15 @@ export default function Dashboard({ auth }) {
                                             />
                                         </div>
                                     )}
-                                    <button
-                                        type="button"
-                                        onClick={submitPost}
-                                        className="custom-button"
-                                    >
-                                        投稿して体験記録の確認へ
-                                    </button>
+                                    <div className="flex justify-center my-4">
+                                        <button
+                                            type="button"
+                                            onClick={submitPost}
+                                            className="custom-button"
+                                        >
+                                            投稿して体験記録の確認へ
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </>

@@ -70,7 +70,9 @@ export default function Dashboard({ auth }) {
                 ) : (
                     <>
                         <div>
-                            <h2>これまでの体験一覧</h2>
+                            <h2 className="font-bold text-gray-800 leading-tight m-2 mb-5">
+                                これまでの体験一覧
+                            </h2>
                         </div>
                         {select_posts &&
                             select_posts.map((plan, index) => {
@@ -80,8 +82,9 @@ export default function Dashboard({ auth }) {
                                         className="mb-20 bg_color_sub px-8"
                                         key={index}
                                     >
-                                        <div className="overflow-hidden sm:rounded-lg">
-                                            <p>
+                                        {/* <div className="overflow-hidden sm:rounded-lg bg-white m-2 rounded py-2"> */}
+                                        <div className="bg_color_main my-2 rounded py-2">
+                                            <p className="text-sm font-semibold text-white leading-tight m-2">
                                                 体験プラン:
                                                 {plan.plan.plan_name}
                                             </p>
@@ -92,7 +95,7 @@ export default function Dashboard({ auth }) {
                                                     (post, index) => (
                                                         <div
                                                             key={index}
-                                                            className="py-6"
+                                                            className="py-3 "
                                                         >
                                                             <div className="card lg:card-side bg-base-100">
                                                                 <figure>
@@ -146,6 +149,10 @@ export default function Dashboard({ auth }) {
                         background-color: #d3381c; /* ホバー時の背景色 */
                         color: white; /* ボタンのテキスト色 */
                     }
+                    .bg_color_main {
+                        background-color: #d3381c;
+                    }
+
                     .bg_color_sub {
                         background-color: #fff1cf;
                     }
