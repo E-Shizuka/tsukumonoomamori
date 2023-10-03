@@ -128,14 +128,14 @@ export default function Authenticated({ user, header, children }) {
                         " sm:hidden"
                     }
                 >
-                    {/* <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
+                    <div className="pt-2 pb-3 space-y-1">
+                        <a
+                            href={route("home")}
+                            active={route().current("home")}
                         >
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div> */}
+                            {/* Dashboard */}
+                        </a>
+                    </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
