@@ -32,21 +32,23 @@ export default function Register() {
         <GuestLayout>
             <Head title="開運の旅へ" />
             <div className="max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center">
-                <div className="mt-16">
-                    <h1>開運の旅へようこそ</h1>
+                <div className="mt-4">
+                    <h1 className="font-bold text-gray-800 leading-tight m-2 mb-5">
+                        開運の旅へようこそ
+                    </h1>
 
-                    <p>
+                    <p className="text-sm text-gray-800 leading-tight m-2">
                         このアプリではパワースポットのご案内とパワースポットの巡り方をご案内しています。
                     </p>
-                    <p>
+                    <p className="text-sm text-gray-800 leading-tight m-2">
                         パワースポットは基本的にはその場所に行くだけでパワーを得ることができますが、そのパワーを自分の中に取り込み、ここぞというときにその力を発揮させるためには正しい手順で行くと良いとされています。
                     </p>
-                    <p>
+                    <p className="text-sm text-gray-800 leading-tight m-2">
                         そのため、手順に沿ってミッションをご用意していますのでミッションにそってパワースポットを巡ってください。
                         またにはミッション写真撮影もございます。
                         神様のお力を、写真に残すことで、そのパワーを持って帰らせていただけますので、あなたの日常に取り入れてください。また、あなたの旅の思い出として大切にしてください。
                     </p>
-                    <p>
+                    <p className="text-sm text-gray-800 leading-tight m-2">
                         このアプリはパワースポットの巡り方や進行を管理し、旅の記録を共有できます。下記よりユーザー登録をして、開運の旅を楽しみましょう！
                     </p>
                 </div>
