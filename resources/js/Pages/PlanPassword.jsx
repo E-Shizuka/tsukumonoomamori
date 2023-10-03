@@ -66,16 +66,20 @@ export default function Dashboard({ auth }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <>
                         <div className="overflow-hidden sm:rounded-lg">
-                            <p>プランパスワードを入力してください。</p>
+                            <p className="text-sm text-gray-800 leading-tight m-2">
+                                プランパスワードを入力してください。
+                            </p>
                             <input
                                 type="hidden"
                                 placeholder="プランID"
+                                className="text-sm text-gray-800 leading-tight m-2 p-2 w-5/6"
                                 value={planId}
                                 onChange={(e) => setPlanId(`${backid}`)} // プランIDの入力を受け付ける
                             />
                             <input
                                 type="text"
                                 placeholder="プランパスワード"
+                                className="text-sm text-gray-800 leading-tight m-2 p-2 w-2/3"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
