@@ -95,7 +95,7 @@ export default function Dashboard({ auth }) {
                                                     (post, index) => (
                                                         <div
                                                             key={index}
-                                                            className="py-3 "
+                                                            className="pb-1 "
                                                         >
                                                             <div className="card lg:card-side bg-base-100">
                                                                 <figure>
