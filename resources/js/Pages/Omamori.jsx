@@ -22,7 +22,9 @@ export default function Dashboard({ auth }) {
                         <h2 className="font-semibold text-gray-800 leading-tight m-2">
                             出品者情報（銀座いせよし）紹介
                         </h2>
-                        銀座いせよしは2009年、匠の手仕事による「きもの」を、若い方やきもの初心者に向けて、気軽に見ていただけるよう創業しました。千谷みゑがデザインしたきものや和小物、千谷みゑが好む品をそろえたお店です。
+                        <p className="text-sm text-gray-800 leading-tight m-2">
+                            銀座いせよしは2009年、匠の手仕事による「きもの」を、若い方やきもの初心者に向けて、気軽に見ていただけるよう創業しました。千谷みゑがデザインしたきものや和小物、千谷みゑが好む品をそろえたお店です。
+                        </p>
                     </div>
                     <div className="overflow-hidden sm:rounded-lg mb-4">
                         <h2 className="font-semibold text-gray-800 leading-tight m-2">
