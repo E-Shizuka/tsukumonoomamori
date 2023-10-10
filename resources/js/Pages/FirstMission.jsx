@@ -141,7 +141,7 @@ export default function Dashboard({ auth }) {
                                     />
                                     {/* プレビュー表示 */}
                                     {selectedFile && (
-                                        <div>
+                                        <div className="flex flex-col items-center justify-center my-4">
                                             <h4>
                                                 アップロードされた画像プレビュー:
                                             </h4>

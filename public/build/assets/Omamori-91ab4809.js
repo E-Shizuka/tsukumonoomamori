@@ -1,0 +1,19 @@
+import{j as e,b as s}from"./app-51790392.js";import{A as a}from"./AuthenticatedLayout-d8bc5048.js";import{F as l}from"./FooterLogin-f67c26d0.js";import"./Dropdown-c2f3c99f.js";import"./transition-7c81bb49.js";function x({auth:t}){return e.jsxs(a,{user:t.user,children:[e.jsx(s,{title:"つくものお守り "}),e.jsx("div",{className:"py-12",children:e.jsxs("div",{className:"max-w-7xl mx-auto sm:px-6 lg:px-8",children:[e.jsxs("div",{className:"overflow-hidden sm:rounded-lg mb-4",children:[e.jsxs("h2",{className:"font-semibold text-gray-800 leading-tight m-2",children:["つくもののお守り 銀座きもの装"," "]}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"きものを知り尽くした千谷みゑが考案した独自のフォルムと結び紐で誰でも簡単に着られますし、帯をしなくても着られます。"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"現代風にアレンジはしていても、生地や縫製、染めや刺繍などは一流の職人の仕事。帯を締めて本格的なきものとして着られます。"})]}),e.jsxs("div",{className:"overflow-hidden sm:rounded-lg mb-4",children:[e.jsx("h2",{className:"font-semibold text-gray-800 leading-tight m-2",children:"出品者情報（銀座いせよし）紹介"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"銀座いせよしは2009年、匠の手仕事による「きもの」を、若い方やきもの初心者に向けて、気軽に見ていただけるよう創業しました。千谷みゑがデザインしたきものや和小物、千谷みゑが好む品をそろえたお店です。"})]}),e.jsxs("div",{className:"overflow-hidden sm:rounded-lg mb-4",children:[e.jsx("h2",{className:"font-semibold text-gray-800 leading-tight m-2",children:"初めて着物の購入を検討している方へメッセージ"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"めぐる季節を自然とともに生き、日々の節目を大事にしてきた日本の文化には、人々が幸せに楽しく暮らせるヒントや知恵がたくさん含まれていると、私は思っています。海外から見た日本も少しだけ経験し、その意識は年を重ねるごとに深くなっています。きものは和の文化の一つです。目をつぶり、耳をふさいでいても体感できる身体の内側の和体験です。ここから少しずつ、皆様と広がっていくことができましたら誠に嬉しく存じます。どうぞ、お気軽に足をお運びくださいませ。"})]}),e.jsxs("div",{className:"overflow-hidden sm:rounded-lg mb-4",children:[e.jsx("p",{className:"text-sm font-semibold text-gray-800 leading-tight m-2",children:"店名"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"銀座いせよし"}),e.jsx("p",{className:"text-sm font-semibold text-gray-800 leading-tight m-2",children:"住所"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"〒104-0061"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"東京都中央区銀座８丁目１０−３"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"銀座三鈴ビル 6階"}),e.jsx("p",{className:"text-sm font-semibold text-gray-800 leading-tight m-2",children:"電話番号"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"03-6228-5875"}),e.jsx("p",{className:"text-sm text-gray-800 leading-tight m-2",children:"※お手数ですがご来店の前にお電話くださいませ"}),e.jsx("p",{className:"text-sm font-semibold text-gray-800 leading-tight m-2",children:"営業時間"}),e.jsxs("p",{className:"text-sm text-gray-800 leading-tight m-2",children:["月・水: 13:30-19:00",e.jsx("br",{}),"火・木・金: 11:30-19:00",e.jsx("br",{}),"土曜: 11:30-18:00",e.jsx("br",{}),"定休日: 日曜・祝日"]}),e.jsx("div",{className:"max-w-7xl mx-auto p-6 lg:p-8 flex flex-col items-center mb-5",children:e.jsx("button",{onClick:()=>{window.open("https://iseyoshi.com/","_blank","noopener,noreferrer")},className:"custom-button",children:"銀座いせよしのウェブサイトへ"})})]}),e.jsx("div",{className:"mb-24"})]})}),e.jsx("style",{children:`
+                    .custom-button {
+                        background-color: #f19072; /* ボタンの背景色 */
+                        color: black; /* ボタンのテキスト色 */
+                        padding: 8px 16px; /* ボタンのパディング */
+                        border-radius: 4px; /* ボタンの角丸 */
+                        border: none; /* ボーダーなし */
+                        margin: 0.5rem;
+                    }
+
+                    .custom-button:hover {
+                        background-color: #d3381c; /* ホバー時の背景色 */
+                        color: white; /* ボタンのテキスト色 */
+                    }
+                    .bg_color_sub {
+                        background-color: #fff1cf;
+                    }
+
+                                `}),e.jsx(l,{})]})}export{x as default};
